@@ -95,7 +95,7 @@
     root: '/',
     scheme: 'Pisces',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -254,7 +254,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="siye">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -320,12 +320,12 @@
       
         
           
-          DFS 判断是否为有环图大致思路DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻居……如果再某一次访问的路径中，访问到了之前已经访问过的节点，则表示有环。如果全部遍历完以后，未遍历到之前访问过的节点，则表示无环。
+          大致思路DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻居……如果再某一次访问的路径中，访问到了之前已经访问过的节点，则表示有环。如果全部遍历完以后，未遍历到之前访问过的节点，则表示无环。
 实现技巧算法理解起来并不难，不过实现起来有一些小技巧。
 
 设置visited变量，存储之前总体访问情况。visited变量存储的应该是之前访问过，且它和它的邻居不存在环的变量。不能用这个变量来判断是否存在环，否则实现起来会有混乱。
 
-设置path变量，记录当前此次路径中的访问情况。我们应该用这个变量来判断是否存在环。注意，因为判断的是当前路径，所以每次对于新路径要进行重置
+设置path变量，记录当前此次路径中的访问情况。我们应该用这个变量来判断是否存在环。注意，因为判断的是当前路径，所以每次对于新路径要进行重置，注意这里的重置并不是将
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -385,7 +385,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="siye">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -530,6 +530,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="siye">
+            
               <p class="site-author-name" itemprop="name">siye</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -553,7 +555,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
