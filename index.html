@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -121,7 +121,7 @@
 
 
 
-  <title>「呦呦鹿鳴，食野之蘋」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>「呦呦鹿鳴，食野之蘋」</title>
   
 
 
@@ -140,7 +140,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://siyewy.github.io/2019/07/21/test/">
+    <link itemprop="mainEntityOfPage" href="https://siyewy.github.io/2019/07/21/exception理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="siye">
@@ -268,7 +268,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/07/21/test/" itemprop="url">test</a></h1>
+                <a class="post-title-link" href="/2019/07/21/exception理解/" itemprop="url">exception理解</a></h1>
         
 
         <div class="post-meta">
@@ -280,7 +280,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T01:57:16+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T03:31:11+08:00">
                 2019-07-21
               </time>
             
@@ -320,146 +320,13 @@
       
         
           
-          Try 1 trylalalala
-123int main() &#123;  cout &lt;&lt; "asdf" &lt;&lt; std::endl;&#125;
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/21/test/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://siyewy.github.io/2019/07/21/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="siye">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="「呦呦鹿鳴，食野之蘋」">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T01:26:26+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-More 
+          作为一个编程新手，长期以来，我一直对于 exception 和 if 充满了疑惑，不知道为什么要使用 exception，而我是从 C 语言开始学习，对于 exception 本生了解就不深。最近在一些实战和思考中对于 exception 有了一些自己的感悟，简单的记录一下。
+为什么要使用exception？有一点很明确的，从我第一天学习编程的时候老师就提到过的：任何一门编程语言，只要含有顺序、选择和循环三种结构就能在理论上写出任何程序。那为什么还要exception呢？答案很简单，为了写代码时更爽，写出的代码更加优雅。
+一个例子假设我正在给我的朋友们写一个库，作用是将一个文件中的注释全部去掉
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/07/21/hello-world/#more" rel="contents">
+            <a class="btn" href="/2019/07/21/exception理解/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -543,7 +410,7 @@ More
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -551,15 +418,6 @@ More
 
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -825,7 +683,7 @@ More
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
