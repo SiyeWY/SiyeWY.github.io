@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM 的原理并不难理解，其之 loss function 直接用循环实现也很简单，但是在 Numpy 中，这样的效率很低，而使用 Numpy 自带的 Matrix 操作会快很多。而这对于不熟悉 Numpy 的人来说，写起来有些许压">
+<meta name="description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现">
 <meta name="keywords" content="machine learning,SVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM loss vectorized 实现">
 <meta property="og:url" content="https://siyewy.github.io/2019/07/29/SVM-loss-vectorized-实现/index.html">
 <meta property="og:site_name" content="「呦呦鹿鳴，食野之蘋」">
-<meta property="og:description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM 的原理并不难理解，其之 loss function 直接用循环实现也很简单，但是在 Numpy 中，这样的效率很低，而使用 Numpy 自带的 Matrix 操作会快很多。而这对于不熟悉 Numpy 的人来说，写起来有些许压">
+<meta property="og:description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-07-29T16:48:48.810Z">
+<meta property="og:updated_time" content="2019-07-30T11:35:38.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM loss vectorized 实现">
-<meta name="twitter:description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM 的原理并不难理解，其之 loss function 直接用循环实现也很简单，但是在 Numpy 中，这样的效率很低，而使用 Numpy 自带的 Matrix 操作会快很多。而这对于不熟悉 Numpy 的人来说，写起来有些许压">
+<meta name="twitter:description" content="什么是 SVM loss vectorized SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function. SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现">
 
 
 
@@ -322,7 +322,7 @@
       
         <h1 id="什么是-svm-loss-vectorized">什么是 SVM loss vectorized</h1>
 <p>SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function.</p>
-<p>SVM 的原理并不难理解，其之 loss function 直接用循环实现也很简单，但是在 Numpy 中，这样的效率很低，而使用 Numpy 自带的 Matrix 操作会快很多。而这对于不熟悉 Numpy 的人来说，写起来有些许压力。所以本文将详尽的对实现代码进行分析，包括整体计算思路，每一个函数的作用和每一步以后变量的变化都进行详细的记录。</p>
+<p>SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现代码进行分析，包括整体计算思路，每一个函数的作用和每一步以后变量的变化。</p>
 <h1 id="准备工作">准备工作</h1>
 <p>本文聚焦于 Multiclass Support Vector Machine Loss，首先简要的介绍下什么是 Multiclass Support Vector Machine Loss。</p>
 <h2 id="svm-loss">SVM loss</h2>
@@ -496,7 +496,7 @@ L = \frac{1}{N}\sum_i\sum_{j \ne y_i}[max(0,w_j^Tx_i-w_{y_i}^Tx_i+\Delta)] + \la
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>

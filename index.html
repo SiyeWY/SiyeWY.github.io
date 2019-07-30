@@ -322,9 +322,9 @@
           
           什么是 SVM loss vectorized
 SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function.
-SVM 的原理并不难理解，其之 loss function 直接用循环实现也很简单，但是在 Numpy 中，这样的效率很低，而使用 Numpy 自带的 Matrix 操作会快很多。而这对于不熟悉 Numpy 的人来说，写起来有些许压力。所以本文将详尽的对实现代码进行分析，包括整体计算思路，每一个函数的作用和每一步以后变量的变化都进行详细的记录。
+SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现代码进行分析，包括整体计算思路，每一个函数的作用和每一步以后变量的变化。
 准备工作
-本文聚焦于 Multiclass Support Vector Mac
+本文聚焦于 Multiclass Support Vector Machine Loss，首先简要的介绍下什么是
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -688,7 +688,7 @@ DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
