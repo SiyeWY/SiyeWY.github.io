@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="「呦呦鹿鳴，食野之蘋」">
 <meta property="og:description" content="什么是 affine function ? 和 linear function 有什么不同？ 两者的公式定义不同：  affine function 的定义： \(f(X)=Ax+b\)，其中A为非 0 向量。 linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。  可以看出，linear function 是 affine function 的 \">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-16T21:11:36.337Z">
+<meta property="og:updated_time" content="2019-08-16T21:24:32.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="affine-layer-反向传播公式推导">
 <meta name="twitter:description" content="什么是 affine function ? 和 linear function 有什么不同？ 两者的公式定义不同：  affine function 的定义： \(f(X)=Ax+b\)，其中A为非 0 向量。 linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。  可以看出，linear function 是 affine function 的 \">
@@ -366,49 +366,49 @@ $$
 <p>首先我们知<span class="math inline">\(\frac{\partial Y}{\partial W}=\frac{\partial Y}{\partial Q}\frac{\partial Q}{\partial W}\)</span>，所以我们的重点在于计算<span class="math inline">\(\frac{\partial Q}{\partial W}\)</span>。</p>
 <p>我们的 <span class="math inline">\(X\)</span> 为:</p>
 <p><span class="math display">\[
-X = \left[{\begin{array}{ccc}
+X = \left[{\begin{matrix}{ccc}
     x_{00} &amp; x_{01} &amp; x_{02} \\
     x_{10} &amp; x_{11} &amp; x_{12}
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span> 我们的 <span class="math inline">\(W\)</span> 为:</p>
 <p><span class="math display">\[
-W = \left[{\begin{array}{cccc}
+W = \left[{\begin{matrix}{cccc}
     w_{00} &amp; w_{01} &amp; w_{02} &amp; w_{03} \\
     w_{10} &amp; w_{11} &amp; w_{12} &amp; w_{13} \\
     w_{20} &amp; w_{21} &amp; w_{22} &amp; w_{23} 
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span></p>
 <p>我们的 <span class="math inline">\(B\)</span> 为:</p>
 <p><span class="math display">\[
-B = \left[{\begin{array}{c}
+B = \left[{\begin{matrix}{c}
     b_0 \\
     b_1 \\
     b_2 \\
     b_3
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span></p>
 <p>我们的 <span class="math inline">\(Q\)</span> 为</p>
 <p><span class="math display">\[
 Q = 
-\left[{\begin{array}{cccc}
+\left[{\begin{matrix}{cccc}
     w_{00}x_{00} + w_{10}x_{01} + w_{20}x_{02} + b_0 &amp; w_{01}x_{00} + w_{11}x_{01} + w_{21}x_{02} + b_1 &amp; w_{02}x_{00} + w_{12}x_{01} + w_{22}x_{02} + b_2 &amp; w_{03}x_{00} + w_{13}x_{01} + w_{23}x_{02} + b_3 \\
     w_{00}x_{10} + w_{10}x_{11} + w_{20}x_{12} + b_0 &amp; w_{01}x_{10} + w_{11}x_{11} + w_{21}x_{12} + b_1 &amp; w_{02}x_{10} + w_{12}x_{11} + w_{22}x_{12} + b_2 &amp; w_{03}x_{10} + w_{13}x_{11} + w_{23}x_{12} + b_3 \\
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span></p>
 <p>我们的 <span class="math inline">\(\frac{\partial e}{\partial Q}\)</span> 为:</p>
 <p><span class="math display">\[
 \frac{\partial e}{\partial Q} =
-\left[{\begin{array}{cccc}
+\left[{\begin{matrix}{cccc}
     \frac{\partial e}{\partial q_{00}} &amp; \frac{\partial e}{\partial q_{01}} &amp; \frac{\partial e}{\partial q_{02}} &amp; \frac{\partial e}{\partial q_{03}} \\
     \frac{\partial e}{\partial q_{10}} &amp; \frac{\partial e}{\partial q_{11}} &amp; \frac{\partial e}{\partial q_{12}} &amp; \frac{\partial e}{\partial q_{13}}
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span></p>
 <p>在计算 <span class="math inline">\(\frac{\partial e}{\partial W}\)</span> 之前，我们先求 <span class="math inline">\(\frac{\partial e}{\partial w_{00}}\)</span>： <span class="math display">\[
 \frac{\partial e}{\partial w_{00}} = \sum_{ij}\frac{\partial e}{\partial q_{ij}}\frac{\partial q_{ij}}{\partial w_{00}} = \frac{\partial e}{\partial q_{00}}x_{00} + \frac{\partial e}{\partial q_{10}}x_{10}
 \]</span></p>
 <p>同理，我们可以得到： <span class="math display">\[
 \frac{\partial e}{\partial W} = 
-\left[{\begin{array}{cccc}
+\left[{\begin{matrix}{cccc}
     \frac{\partial e}{\partial q_{00}}x_{00} + \frac{\partial e}{\partial q_{10}}x_{10} 
     &amp; \frac{\partial e}{\partial q_{01}}x_{00} + \frac{\partial e}{\partial q_{11}}x_{10} 
     &amp; \frac{\partial e}{\partial q_{02}}x_{00} + \frac{\partial e}{\partial q_{12}}x_{10} 
@@ -421,7 +421,7 @@ Q =
     &amp; \frac{\partial e}{\partial q_{00}}x_{00} + \frac{\partial e}{\partial q_{10}}x_{10} 
     &amp; \frac{\partial e}{\partial q_{00}}x_{00} + \frac{\partial e}{\partial q_{10}}x_{10} 
     &amp; \frac{\partial e}{\partial q_{00}}x_{00} + \frac{\partial e}{\partial q_{10}}x_{10}
-\end{array}}\right]
+\end{matrix}}\right]
 \]</span></p>
 <p>恰好等于：</p>
 <p><span class="math display">\[
@@ -439,16 +439,16 @@ Q =
 <h2 id="y-对-b-的求导">Y 对 B 的求导</h2>
 <p>首先对这个加法的理解，<span class="math inline">\(B\)</span>的大小是<span class="math inline">\((4，0)\)</span>，为： <span class="math display">\[
     B = 
-    \left[{\begin{array}{cccc}
+    \left[{\begin{matrix}{cccc}
         b_0,b_1,b_2,b_3
-    \end{array}}\right]^T
+    \end{matrix}}\right]^T
 \]</span></p>
 <p>很明显和<span class="math inline">\((2,4)\)</span>的矩阵无法相加，在numpy的运算中，实际将它拓展为了： <span class="math display">\[
     B = 
-    \left[{\begin{array}{cccc}
+    \left[{\begin{matrix}{cccc}
         b_0,b_1,b_2,b_3 \\
         b_0,b_1,b_2,b_3 
-    \end{array}}\right]
+    \end{matrix}}\right]
 \]</span></p>
 <p>有了上式，我们计算 <span class="math inline">\(\frac{de}{db}\)</span> 就简单了，首先我们计算<span class="math inline">\(\frac{de}{db_0}\)</span>：</p>
 <p><span class="math display">\[
