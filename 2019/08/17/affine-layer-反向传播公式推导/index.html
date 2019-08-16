@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="「呦呦鹿鳴，食野之蘋」">
 <meta property="og:description" content="什么是 affine function ? 和 linear function 有什么不同？ 两者的公式定义不同：  affine function 的定义： \(f(X)=Ax+b\)，其中A为非 0 向量。 linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。  可以看出，linear function 是 affine function 的 \">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-16T21:24:32.118Z">
+<meta property="og:updated_time" content="2019-08-16T21:32:10.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="affine-layer-反向传播公式推导">
 <meta name="twitter:description" content="什么是 affine function ? 和 linear function 有什么不同？ 两者的公式定义不同：  affine function 的定义： \(f(X)=Ax+b\)，其中A为非 0 向量。 linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。  可以看出，linear function 是 affine function 的 \">
@@ -431,7 +431,17 @@ Q =
 <p>在计算 <span class="math inline">\(\frac{\partial e}{\partial X}\)</span> 之前，我们先求 <span class="math inline">\(\frac{\partial e}{\partial x_{00}}\)</span>： <span class="math display">\[
 \frac{\partial e}{\partial x_{00}} = \sum_{ij}\frac{\partial e}{\partial q_{ij}}\frac{\partial q_{ij}}{\partial x_{00}} = \frac{\partial e}{\partial q_{00}}w_{00} + \frac{\partial e}{\partial q_{01}}w_{01} + \frac{\partial e}{\partial q_{02}}w_{02} + \frac{\partial e}{\partial q_{03}}w_{03}
 \]</span></p>
-<p>同理，我们可以得到： $$  = $$</p>
+<p>同理，我们可以得到： <span class="math display">\[
+\frac{\partial e}{\partial X} = 
+\left[{\begin{matrix}{cccc}
+    \frac{\partial e}{\partial q_{00}}w_{00} + \frac{\partial e}{\partial q_{01}}w_{01} + \frac{\partial e}{\partial q_{02}}w_{02} + \frac{\partial e}{\partial q_{03}}w_{03} 
+    &amp;  \frac{\partial e}{\partial q_{00}}w_{10} + \frac{\partial e}{\partial q_{01}}w_{11} + \frac{\partial e}{\partial q_{02}}w_{12} + \frac{\partial e}{\partial q_{03}}w_{13} 
+    &amp;  \frac{\partial e}{\partial q_{00}}w_{20} + \frac{\partial e}{\partial q_{01}}w_{21} + \frac{\partial e}{\partial q_{02}}w_{22} + \frac{\partial e}{\partial q_{03}}w_{23}  \\
+    \frac{\partial e}{\partial q_{10}}w_{00} + \frac{\partial e}{\partial q_{11}}w_{01} + \frac{\partial e}{\partial q_{12}}w_{02} + \frac{\partial e}{\partial q_{13}}w_{03} 
+    &amp;  \frac{\partial e}{\partial q_{00}}w_{10} + \frac{\partial e}{\partial q_{01}}w_{11} + \frac{\partial e}{\partial q_{12}}w_{12} + \frac{\partial e}{\partial q_{13}}w_{13} 
+    &amp;  \frac{\partial e}{\partial q_{20}}w_{20} + \frac{\partial e}{\partial q_{21}}w_{21} + \frac{\partial e}{\partial q_{22}}w_{22} + \frac{\partial e}{\partial q_{23}}w_{23} \\
+\end{matrix}}\right]
+\]</span></p>
 <p>恰好等于：</p>
 <p><span class="math display">\[
     \frac{\partial e}{\partial X} =  \frac{\partial e}{\partial Q}W^T
@@ -457,7 +467,15 @@ Q =
     = \frac{\partial e}{\partial q_{00}} + \frac{\partial e}{\partial q_{10}}
 \]</span></p>
 <p>同理，我们可以得到：</p>
-<p>$$  = ^T $$</p>
+<p><span class="math display">\[
+    \frac{de}{db} 
+    = \left[{\begin{matrix}{cccc}
+        \frac{\partial e}{\partial q_{00}} + \frac{\partial e}{\partial q_{10}}
+        &amp; \frac{\partial e}{\partial q_{01}} + \frac{\partial e}{\partial q_{11}}
+        &amp; \frac{\partial e}{\partial q_{02}} + \frac{\partial e}{\partial q_{12}}
+        &amp; \frac{\partial e}{\partial q_{03}} + \frac{\partial e}{\partial q_{13}}
+    \end{matrix}}\right]^T
+\]</span></p>
 <p>恰好等于：</p>
 <p><span class="math display">\[
     \frac{de}{db} = np.sum(\frac{\partial e}{\partial Q}, axis=0)
