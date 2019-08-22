@@ -249,6 +249,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://siyewy.github.io/2019/08/22/function-为什么需要ReLU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="siye">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「呦呦鹿鳴，食野之蘋」">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/22/function-为什么需要ReLU/" itemprop="url">function,为什么需要ReLU</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-22T21:04:49+08:00">
+                2019-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+           简介
+最近我发现几乎在每一个 neural network architecture 中，它们 fc 层后面都会跟着一个 ReLU 层，但是我一直不知道为什么要加一个 ReLU。只记得 CS231n 里面说过 in practice，每个 fc 层后面都会加一个 ReLU 层，今天我就抽空好好地研究了一下其中的原理。
+整个文章分两部分：
+
+为什么要使用 activation function?
+为什么要使用 ReLU?
+
+ 为什么要使用 activation function?
+想要说明这一点，可以通过比较含有 activation function 的架构和不含有 activation f
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/22/function-为什么需要ReLU/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://siyewy.github.io/2019/08/17/affine-layer-反向传播公式推导/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,15 +454,15 @@
       
         
           
-          什么是 affine function ? 和 linear function 有什么不同？
+           什么是 affine function ? 和 linear function 有什么不同？
 两者的公式定义不同：
 
-affine function 的定义： \(f(X)=Ax+b\)，其中A为非 0 向量。
-linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。
+affine function 的定义： f(X)=Ax+bf(X)=Ax+bf(X)=Ax+b，其中A为非 0 向量。
+linear function 的定义： f(X)=Axf(X)=Axf(X)=Ax，其中A为非 0 向量。
 
-可以看出，linear function 是 affine function 的 \(b=0\) 的一种特殊情形。
-问题设定
-已知误差\(e\)（标量），有函数 \(Y=f(Q)\)，且 \(\frac{\partial e}{\partial Q}\) 是一个 \((2,4)\
+可以看出，linear function 是 affine function 的 b=0b=0b=0 的一种特殊情形。
+ 问题设定
+已知误差eee（标量），有函数 Y=f(Q)Y=f(Q)Y=f(Q)，且 ∂e∂Q\frac{\partial e
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -454,11 +588,11 @@ linear function 的定义： \(f(X)=Ax\)，其中A为非 0 向量。
       
         
           
-          什么是 SVM loss vectorized
+           什么是 SVM loss vectorized
 SVM loss vectorized 即用 vector 的方式来计算 SVM 的 loss function.
 SVM loss function 的原理并不难理解，直接用循环实现也很简单。但是因为 Numpy 的底层做了优化，所以使用矩阵运算会比使用循环快得多。而这对于不熟悉 Numpy 的人来说，写起来有不小的压力。所以本文将详尽的对实现代码进行分析，包括整体计算思路，每一个函数的作用和每一步以后变量的变化。
-准备工作
-本文聚焦于 Multiclass Support Vector Machine Loss，首先简要的介绍下什么是
+ 准备工作
+本文聚焦于 Multiclass Support Vector Machine Loss，首先简要的介绍下什么是 M
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -584,13 +718,16 @@ SVM loss function 的原理并不难理解，直接用循环实现也很简单�
       
         
           
-          大致思路
-DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻居......如果再某一次访问的路径中，访问到了之前已经访问过的节点，则表示有环。如果全部遍历完以后，未遍历到之前访问过的节点，则表示无环。
-实现技巧
+           大致思路
+DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻居…如果再某一次访问的路径中，访问到了之前已经访问过的节点，则表示有环。如果全部遍历完以后，未遍历到之前访问过的节点，则表示无环。
+ 实现技巧
 算法理解起来并不难，不过实现起来有一些小技巧。
 
+
 设置visited变量，存储之前总体访问情况。visited变量存储的应该是之前访问过，且它和它的邻居不存在环的变量。不能用这个变量来判断是否存在环，否则实现起来会有混乱。
-设置path变量，记录当前此次路径中的访问情况。我们应该用这个变量来判断是否存在环。注意，因为判断的是当前路径，所以每次对于新路径要进行重置，
+
+
+设置path变量，记录当前此次路径中的访问情况。我们应该用这个变量来判断是否存在环。注意，因为判断的是当前路径，所以每次对于新路径要进行重置，注意这里的重
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -717,10 +854,10 @@ DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻
         
           
           作为一个编程新手，长期以来，我一直对于 exception 和 if 充满了疑惑，不知道为什么要使用 exception，而我是从 C 语言开始学习，对于 exception 本生了解就不深。最近在一些实战和思考中对于 exception 有了一些自己的感悟，简单的记录一下。
-为什么要使用exception？
+ 为什么要使用exception？
 有一点很明确的，从我第一天学习编程的时候老师就提到过的：任何一门编程语言，只要含有顺序、选择和循环三种结构就能在理论上写出任何程序。那为什么还要exception呢？答案很简单，为了写代码时更爽，写出的代码更加优雅。
-一个例子
-假设我正在给我的朋友们写一个库，作用是将一个文件中的
+ 一个例子
+假设我正在给我的朋友们写一个库，作用是将一个文件中的注释
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -810,7 +947,7 @@ DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -822,7 +959,7 @@ DFS: 首先访问一个节点，然后访问他的邻居，再访问邻居的邻
               
               
               <div class="site-state-item site-state-tags">
-                <a href="/tags/index-1.html">
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
