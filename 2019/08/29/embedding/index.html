@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="什么是 embedding layer? embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设">
+<meta name="description" content="embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设有5000个汉字，那么标识一个汉字要用的向量">
 <meta name="keywords" content="deep learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="embedding">
 <meta property="og:url" content="https://siyewy.github.io/2019/08/29/embedding/index.html">
 <meta property="og:site_name" content="「呦呦鹿鳴，食野之蘋」">
-<meta property="og:description" content="什么是 embedding layer? embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设">
+<meta property="og:description" content="embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设有5000个汉字，那么标识一个汉字要用的向量">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-08-29T01:30:12.162Z">
+<meta property="og:updated_time" content="2019-08-29T01:34:25.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="embedding">
-<meta name="twitter:description" content="什么是 embedding layer? embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设">
+<meta name="twitter:description" content="embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。 背景 在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设有5000个汉字，那么标识一个汉字要用的向量">
 
 
 
@@ -320,11 +320,10 @@
       
 
       
-        <h1 id="什么是-embedding-layer">什么是 embedding layer?</h1>
-<p>embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。</p>
-<h2 id="背景">背景</h2>
+        <p>embedding layer 网上个个都将的神乎其神，其本质上就是一个转换。将某一维度的向量转化到另一个维度。看到转换这两个字，很容易想到矩阵相乘。实际上大多数的 embedding layer 就是调用了一下 linear layer。</p>
+<h1 id="背景">背景</h1>
 <p>在 NLP 中，如果用一个数字代表一个汉字，对于某一个待定的汉字，就要用一个非常稀疏的向量来表示它。假设有5000个汉字，那么标识一个汉字要用的向量就是一个5000x1的向量，其中有4999个为0，1个为1。这种方法叫做 one-hot。很明显，这样子效率很低，所以有人想出了这样一个办法，不再用一个数字表示一个汉字，而是使用一组数字来表示这个汉字，这一组数字叫做 latent factors。而 latent factors 究竟由多少个数字组成，则由使用者自己定。</p>
-<h3 id="据个例子">据个例子：</h3>
+<h2 id="据个例子">据个例子：</h2>
 <p>one hot 编码 5 个 字：一（0），二（1），三（2），四（3），五（4）</p>
 <table>
 <thead>
@@ -381,10 +380,46 @@
 </tbody>
 </table>
 <p>所以一所对应的向量为<span class="math inline">\((1,0,0,0,0)^T\)</span>，二所对应的向量为<span class="math inline">\((0,1,0,0,0,0)^T\)</span>，依次类推。</p>
-<p>使用了embedding 后，假设 latent factors 的个数为 3。 | | | | | | --- | ---- | ---- | ---- | | 一 | 0.11 | 0.23 | 0.97 | | 二 | 0.18 | 0.42 | 0.65 | | 三 | 0.67 | 0.16 | 0.55 | | 四 | 0.12 | 0.27 | 0.21 | | 五 | 0.23 | 0.07 | 0.88 |</p>
+<p>使用了embedding 后，假设 latent factors 的个数为 3。</p>
+<table>
+<thead>
+<tr class="header">
+<th>一</th>
+<th>0.11</th>
+<th>0.23</th>
+<th>0.97</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>二</td>
+<td>0.18</td>
+<td>0.42</td>
+<td>0.65</td>
+</tr>
+<tr class="even">
+<td>三</td>
+<td>0.67</td>
+<td>0.16</td>
+<td>0.55</td>
+</tr>
+<tr class="odd">
+<td>四</td>
+<td>0.12</td>
+<td>0.27</td>
+<td>0.21</td>
+</tr>
+<tr class="even">
+<td>五</td>
+<td>0.23</td>
+<td>0.07</td>
+<td>0.88</td>
+</tr>
+</tbody>
+</table>
 <p>很明显的节约了不少空间。</p>
 <h1 id="为什么需要-embedding-layer">为什么需要 embedding layer?</h1>
-<p>除了上述背景中讲述的能够降低所占空间，提高效率意外，还有一个重要的点。one hot 没有办法表示两个词之间的关系。很容易理解，在语言里面，词与词之间是存在关系的。使用 one hot，很难表示出来这种关系。那么使用 embedding layer 怎么描述这种关系呢？这就只能通过学习来获取这个关系了。所以 embedding layer 是可以学习的，里面的系数描述了词与词之间的关系。</p>
+<p>除了上述背景中讲述的能够降低所占空间，提高效率意外，还有一个重要的点。one hot 没有办法表示两个词之间的关系。很容易理解，在语言里面，词与词之间是存在关系的。单纯地使用人造的 0 和 1 来表示词，很难表示这种关系。那么使用 embedding layer 怎么描述这种关系呢？这就只能通过学习来获取这个关系了。所以 embedding layer 是可以学习的，里面的系数描述了词与词之间的关系。</p>
 <p>当然了，因为本质就是从一个维度转换到另一个维度，我们也可以单纯将它当作一个映射来用，用来改变向量维度。</p>
 <h1 id="embedding-layer-的实现">embedding layer 的实现</h1>
 <p>很多情况下，使用一个全相连层就可以了。<span class="math inline">\(W\)</span> 的 shape 为 （输入的维度，输出的维度）。输入的维度就是原先用多大的 vector 来描述字符，输出的维度就是latent factors 的个数。</p>
@@ -579,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是-embedding-layer"><span class="nav-number">1.</span> <span class="nav-text">什么是 embedding layer?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#据个例子"><span class="nav-number">1.1.1.</span> <span class="nav-text">据个例子：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么需要-embedding-layer"><span class="nav-number">2.</span> <span class="nav-text">为什么需要 embedding layer?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#embedding-layer-的实现"><span class="nav-number">3.</span> <span class="nav-text">embedding layer 的实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#据个例子"><span class="nav-number">1.1.</span> <span class="nav-text">据个例子：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么需要-embedding-layer"><span class="nav-number">2.</span> <span class="nav-text">为什么需要 embedding layer?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#embedding-layer-的实现"><span class="nav-number">3.</span> <span class="nav-text">embedding layer 的实现</span></a></li></ol></div>
             
 
           </div>
@@ -735,24 +770,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -805,6 +823,43 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
