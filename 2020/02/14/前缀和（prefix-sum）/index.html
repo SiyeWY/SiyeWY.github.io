@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前缀和 (prefix sum) 前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_s">
+<meta name="description" content="前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_sum = [6, 9, 16, 18">
 <meta name="keywords" content="algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前缀和（prefix sum）">
 <meta property="og:url" content="https://siyewy.github.io/2020/02/14/前缀和（prefix-sum）/index.html">
 <meta property="og:site_name" content="「呦呦鹿鳴，食野之蘋」">
-<meta property="og:description" content="前缀和 (prefix sum) 前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_s">
+<meta property="og:description" content="前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_sum = [6, 9, 16, 18">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2020-02-14T14:57:30.567Z">
+<meta property="og:updated_time" content="2020-02-14T14:58:31.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前缀和（prefix sum）">
-<meta name="twitter:description" content="前缀和 (prefix sum) 前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_s">
+<meta name="twitter:description" content="前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。 一维数组的前缀和 在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例： 12a = [6, 3, 7, 2, 4]prefix_sum = [6, 9, 16, 18">
 
 
 
@@ -320,8 +320,7 @@
       
 
       
-        <h1 id="前缀和-prefix-sum">前缀和 (prefix sum)</h1>
-<p>前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。</p>
+        <p>前缀和是一种很常见的数据结构，在 leetcode 上面也有相应的题目，如（523，1292）。我们利用前缀和可以很容易快速的求出一块区域的值。我们分一维数组的前缀和和二维数组的前缀和来介绍。</p>
 <h2 id="一维数组的前缀和">一维数组的前缀和</h2>
 <p>在一维数组中，某一点的前缀和表示从数组的起始点到这一点的所有元素加在一起的值。如下例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">prefix_sum = [<span class="number">6</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">18</span>, <span class="number">22</span>]</span><br></pre></td></tr></table></figure>
@@ -523,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前缀和-prefix-sum"><span class="nav-number">1.</span> <span class="nav-text">前缀和 (prefix sum)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组的前缀和"><span class="nav-number">1.1.</span> <span class="nav-text">一维数组的前缀和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的前缀和"><span class="nav-number">1.2.</span> <span class="nav-text">二维数组的前缀和</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组的前缀和"><span class="nav-number">1.</span> <span class="nav-text">一维数组的前缀和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的前缀和"><span class="nav-number">2.</span> <span class="nav-text">二维数组的前缀和</span></a></li></ol></div>
             
 
           </div>
